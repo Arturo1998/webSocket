@@ -1,3 +1,5 @@
+//import { onDameDocs } from "./fireBase.js";
+
 let miWebSocket;
 
 const miNuevoMensaje = document.getElementById("nuevo-mensaje");
@@ -5,6 +7,8 @@ const misRespuestas = document.getElementById("respuestas");
 const botonAbrir = document.getElementById("abrirWs");
 const botonCerrar = document.getElementById("cerrarWs");
 const conexiones = document.getElementById("listaUrl");
+
+//con axios
 
 window.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -17,7 +21,24 @@ window.addEventListener("DOMContentLoaded", async () => {
   } catch (e) {
     console.log(e);
   }
-}); 
+});
+
+//con firebase
+/*
+window.addEventListener("DOMContentLoaded", async () => {
+  await onDameDocs("URLS", (docs) => {
+    let html = "";
+    docs.forEach((e) => {
+      const { URL } = e.data();
+      const id = doc.id;
+      html += `<select>
+      <option>
+      ${URL}
+      </option>
+      </select>`;
+    });
+  });
+});*/
 
 //Controlamos la conexión a nuestro servidor WebSocket
 
