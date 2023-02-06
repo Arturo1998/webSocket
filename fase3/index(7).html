@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Cliente WebSocket</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js"></script>
+  </head>
+  <body>
+
+    <!-- Nuevo Mensaje -->
+    <label>Conexión</label>
+    <select id="conexiones"></select>
+    <br>
+    <label>Mensaje</label>
+    <input type="text" id="nuevo-mensaje">
+    <br>
+    <button id="cierraConexion">Cierra Conexión</button>
+    <button id="abreConexion">Abre Conexión</button>
+
+    <!-- Mensajes recibidos -->
+    <div id="respuestas"></div>
+
+    <script src="./index.js"></script>
+           
+  </body>
+</html>
+
