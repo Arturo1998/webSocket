@@ -15,7 +15,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-firestore.js";
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
+
   apiKey: "AIzaSyCKnIGcbgPPep9UnZV4SkOA4JFKjGNs8PY",
 
   authDomain: "prueba-e1d35.firebaseapp.com",
@@ -26,10 +28,13 @@ const firebaseConfig = {
 
   messagingSenderId: "579520118163",
 
-  appId: "1:579520118163:web:2a2123256887e36915bc66",
+  appId: "1:579520118163:web:2a2123256887e36915bc66"
+
 };
 
-//Conectamos con la base de datos
+
+// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 

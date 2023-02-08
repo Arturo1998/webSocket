@@ -9,19 +9,23 @@
   <body>
 
     <!-- Nuevo Mensaje -->
-    
-    <label>Mensaje</label>
-    <input type="text" id="nuevo-mensaje">
+    <select name="" id="listaUrl"></select>
+   
     <br>
     <button id="abrirWs">Abrir ws</button>
     <button id="cerrarWs">Cerrar ws</button>
     
+    <br>
+    <label>Mensaje</label>
+    <input type="text" id="nuevo-mensaje">
+    <button id="mostrarNuevos">Mostrar Nuevos</button>
     <!-- Mensajes recibidos -->
+    <div id="nuevos"></div>
     <div id="respuestas"></div>
 
-    <select name="" id="listaUrl"></select>
+    
 
-    <script src="./index(12).js"></script>
+    <script type="module" src="./index(12).js"></script>
   <!--  <script src=".fireBase.js/" type="module"></script> -->
            
   </body>

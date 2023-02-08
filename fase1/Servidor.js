@@ -7,7 +7,7 @@ const http = require('http');
 // Creamos una instacia del servidor HTTP (Web)
 const server = http.createServer();
 // Creamos y levantamos un servidor de WebSockets a partir del servidor HTTP
-const wss = new WebSocket.Server({ server});
+const wss = new WebSocket.Server({ server });
 
 // Escuchamos los eventos de conexión
 wss.on('connection', (ws) => {

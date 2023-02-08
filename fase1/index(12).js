@@ -1,4 +1,4 @@
-//import { onDameDocs } from "./fireBase.js";
+import { onDameDocs } from "./fireBase.js";
 
 let miWebSocket;
 
@@ -7,9 +7,11 @@ const misRespuestas = document.getElementById("respuestas");
 const botonAbrir = document.getElementById("abrirWs");
 const botonCerrar = document.getElementById("cerrarWs");
 const conexiones = document.getElementById("listaUrl");
+const mostrarNuevos = document.getElementById("mostrarNuevos");
+const nuevos = document.getElementById("nuevos");
 
 //con axios
-
+/*
 window.addEventListener("DOMContentLoaded", async () => {
   try {
     const respuesta = await axios.get(`http://localhost:3000/servidores`);
@@ -22,23 +24,22 @@ window.addEventListener("DOMContentLoaded", async () => {
     console.log(e);
   }
 });
+*/
 
 //con firebase
-/*
+
 window.addEventListener("DOMContentLoaded", async () => {
   await onDameDocs("URLS", (docs) => {
-    let html = "";
     docs.forEach((e) => {
       const { URL } = e.data();
-      const id = doc.id;
-      html += `<select>
-      <option>
-      ${URL}
-      </option>
-      </select>`;
+      console.log(URL);
+      const id = e.id;
+      let option = document.createElement("option");
+      option.text = URL;
+      conexiones.add(option);
     });
   });
-});*/
+});
 
 //Controlamos la conexión a nuestro servidor WebSocket
 
@@ -58,15 +59,23 @@ const open = () => {
   console.log("WebSocket abierto.");
 };
 
+let lista = [];
+
 const message = async (evento) => {
   // Se recibe un mensaje
   console.log("WebSocket ha recibido un mensaje");
   // Mostrar mensaje en HTML
   const mensajeRecibido = await evento.data;
-  misRespuestas.innerHTML = misRespuestas.innerHTML.concat(
-    mensajeRecibido,
-    "<br>"
-  );
+  lista.push(mensajeRecibido);
+  nuevos.innerHTML = "Tienes mensajes nuevos";
+
+  mostrarNuevos.addEventListener("click", () => {
+    nuevos.innerHTML = "";
+    lista.map((x) => {
+      misRespuestas.innerHTML += x.concat("<br>");
+    });
+    lista = [];
+  });
 };
 
 const error = (evento) => {
